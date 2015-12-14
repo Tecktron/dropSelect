@@ -33,7 +33,7 @@
                     // Call the callback if it's set
                     opts.callBack(value);
                 }
-                // Trigger the change event.
+                // Trigger the change event, does this even work?.
                 selected.parent().trigger('change');
             });
         });
@@ -142,6 +142,9 @@
 
             return attributes;
         }
+
+        // For chaining
+        return this;
     };
 
     // Here we override the val() function to obtain the value or null if not set.
