@@ -18,7 +18,7 @@
                 var $this = $(this),
                     display = $this.html(),
                     value = $this.data('value'),
-                    selected = $this.parents().find('.selected');
+                    selected = $this.parent().siblings('.selected');
 
                 if (selected.attr('data-value') === value) {
                     return;
