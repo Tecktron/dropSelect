@@ -14,7 +14,7 @@
             original.replaceWith(dropSelect);
             dropSelect.width(width);
             // Set the onclick handler of the items
-            dropSelect.find('div.items a').on("click", function () {
+            dropSelect.find('div.items a').on('click', function () {
                 var $this = $(this),
                     display = $this.html(),
                     value = $this.data('value'),
@@ -34,7 +34,7 @@
                     opts.callBack(value);
                 }
                 // Trigger the change event.
-                selected.parent().trigger("change");
+                selected.parent().trigger('change');
             });
         });
 
@@ -51,7 +51,7 @@
                 items = $('<div class="items">'),
                 selected = $('<div class="selected">'),
                 widths = [],
-                attr;
+                attr, first;
 
             // Add the attributes from the select to the div
             for (attr in attrs) {
@@ -85,6 +85,9 @@
                 // Setup our initial selection
                 if ((isSelected && opts.setSelected === true) || (opts.forceSelected === value)) {
                     selected.html(name);
+                    if (current.length) {
+                        current.addClass('active');
+                    }
                 }
 
                 if (current.length) {
@@ -95,9 +98,13 @@
 
             // If nothing is set as selected, the fist item will be auto selected, just like a select box
             if (selected.text() === "") {
+                first = items.find(':first-child');
+
                 selected
-                    .html(items.find(":first-child").html())
-                    .attr('data-value', items.find(":first-child").attr('data-value'));
+                    .html(first.html())
+                    .attr('data-value', first.attr('data-value'));
+
+                first.addClass('active');
             }
             // Append our items to the div
             dropSelect
