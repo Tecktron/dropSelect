@@ -1,0 +1,64 @@
+.dropSelect {
+    position: relative;
+    display: inline-block;
+    border: #000 solid thin;
+    background-color: #ccc;
+    color: #C00;
+    cursor: pointer;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.dropSelect:hover {
+    background-color: #07c;
+    color: #EE0
+}
+
+.dropSelect div.selected {
+    height: 100%;
+    line-height: 2rem;
+    padding: 1rem 3rem 1rem 1rem;
+}
+
+.dropSelect div.icon-arrow-down {
+    display: block;
+    font-size: 0.7rem;
+    position: absolute;
+    background: transparent none repeat scroll 0 0;
+    right: 1.3rem;
+    top: 1.4rem;
+}
+
+.dropSelect div.icon-arrow-down::after {
+    content:"▼";
+}
+
+.dropSelect div.items {
+    display:none;
+    overflow-y: auto;
+    height: calc(4rem * 4);
+}
+
+.dropSelect:hover div.items {
+    display:block;
+    border-top:thin solid #000;
+}
+
+.dropSelect div.items a {
+    display: block;
+    height: 2rem;
+    line-height: 2rem;
+    padding: 1rem;
+    white-space: nowrap;
+}
+
+.dropSelect div.items a.active {
+    background-color: #666;
+    cursor: default;
+    color: #ccc;
+}
+
+.dropSelect div.items a:not(.active):hover {
+    background-color: #666;
+    color: #FFF;
+}
