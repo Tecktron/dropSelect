@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <title>dropSelect Demo</title>
     <link rel="stylesheet" href="dropSelect.css">
-    <script type=text/javascript src="https://code.jquery.com/jquery-2.1.4.js"></script>
-    <script type=text/javascript src="dropSelect.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="dropSelect.js"></script>
+    <style type="text/css">
+        #selectedValue {
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
-    <div id="selectedValue">No Selection</div>
     <select id="test">
         <option selected>Select an item:</option>
         <option value="item-1">Item uno (one)</option>
@@ -22,6 +26,7 @@
         <option value="item-9">Item nueve (nine)</option>
         <option value="item-10">Item diez (ten)</option>
     </select>
+    <div id="selectedValue">No Selection</div>
 <script>
     $(function() {
         $('#test').dropSelect({

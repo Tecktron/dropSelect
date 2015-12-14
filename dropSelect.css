@@ -36,12 +36,18 @@
 .dropSelect div.items {
     display:none;
     overflow-y: auto;
+    /* show 4 items. to show 3, change the multiplier to 3 */
     height: calc(4rem * 4);
+    background: inherit;
+    width: inherit;
+    position: absolute;
+    border: inherit;
+    margin-left: -1px;
 }
 
 .dropSelect:hover div.items {
     display:block;
-    border-top:thin solid #000;
+    border-top: thin solid #000;
 }
 
 .dropSelect div.items a {
