@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dropSelect Demo</title>
+    <link rel="stylesheet" href="dropSelect.css">
+    <script type=text/javascript src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script type=text/javascript src="dropSelect.js"></script>
+</head>
+<body>
+    <div id="selectedValue">No Selection</div>
+    <select id="test">
+        <option selected>Select an item:</option>
+        <option value="item-1">Item uno (one)</option>
+        <option value="item-2">Item dos (two)</option>
+        <option value="item-3">Item tres (three)</option>
+        <option value="item-4">Item cuatro (four)</option>
+        <option value="item-5">Item cinco (five)</option>
+        <option value="item-6">Item seis (six)</option>
+        <option value="item-7">Item siete (seven)</option>
+        <option value="item-8">Item ocho (eight)</option>
+        <option value="item-9">Item nueve (nine)</option>
+        <option value="item-10">Item diez (ten)</option>
+    </select>
+<script>
+    $(function() {
+        $('#test').dropSelect({
+            callBack: function(value) {
+                $('#selectedValue').text(value);
+            },
+            formatter: function(text) {
+                return text.replace('(',"<small>(").replace(')',")</small>");
+            },
+            width: "500px"
+        });
+    });
+</script>
+</body>
+</html>
