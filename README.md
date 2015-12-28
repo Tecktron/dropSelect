@@ -1,7 +1,7 @@
 # dropSelect jQuery Plugin
 
 This is a CSS 3/jQuery plugin for making a div based dropdown select box.
-All styling is done with CSS. Usage is simple: `$('#mySelectElement').dropSlected()` you're ready to go.
+All styling is done with CSS. Usage is simple: `$('#mySelectElement').dropSelect()` you're ready to go.
 It takes an optional object of options:
 
 + className - Specify the class name to use (defaults to "dropSelect")
