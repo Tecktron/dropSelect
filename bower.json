@@ -1,8 +1,9 @@
 {
   "name": "dropSelect",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": [
-    "dropSelect.js"
+    "dropSelect.js",
+    "dropSelect.scss"
   ],
   "homepage": "https://hinstitute.github.io/dropSelect/",
   "repository": {
