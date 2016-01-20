@@ -1,4 +1,5 @@
 (function ($) {
+    'use strict';
     $.fn.dropSelect = function (options) {
         var opts = $.extend({}, $.fn.dropSelect.defaults, options),
             fakeEl;
@@ -7,7 +8,7 @@
         this.each(function () {
             var original = $(this),
                 dropSelect = generate(original),
-                width = (opts.width === "auto") ? dropSelect.width : opts.width;
+                width = (opts.width === 'auto') ? dropSelect.width : opts.width;
 
             dropSelect = dropSelect.element;
             // We'll replace the element
@@ -29,7 +30,7 @@
                 });
                 $this.addClass('active');
                 selected.attr('data-value', value).html(display);
-                if (typeof opts.callBack === "function") {
+                if (typeof opts.callBack === 'function') {
                     // Call the callback if it's set
                     opts.callBack(value);
                 }
@@ -67,7 +68,7 @@
             select.find('option').each(function (index) {
                 var $this = $(this),
                     value = $this.attr('value') || null,
-                    name = ((typeof opts.formatter === "function") ? opts.formatter($this.text()) : $this.text()),
+                    name = ((typeof opts.formatter === 'function') ? opts.formatter($this.text()) : $this.text()),
                     isSelected = $this.prop('selected'),
                     current = {};
 
@@ -97,7 +98,7 @@
             });
 
             // If nothing is set as selected, the fist item will be auto selected, just like a select box
-            if (selected.text() === "") {
+            if (selected.text() === '') {
                 first = items.find(':first-child');
 
                 selected
@@ -147,22 +148,30 @@
         return this;
     };
 
-    // Here we override the val() function to obtain the value or null if not set.
+    // Here we override the val() function
+    // passing it an empty value will obtain the value or null if not set.
+    // passing it a value will make that value selected if found
     $.fn.val = function (value) {
-        return $(this).find('.selected').attr('data-value') || null;
+        if (!value) {
+            return $(this).find('.selected').attr('data-value') || null;
+        }
+        var item = $(this).find('div.items a[data-value=' + value + ']') || null;
+        if (item) {
+            item.click();
+        }
     };
 
     // The default options
     $.fn.dropSelect.defaults = {
-        className:             "dropSelect", // The class name to use
-        arrowClass:            "icon-arrow-down", // The class name for the down arrow
+        className:             'dropSelect', // The class name to use
+        arrowClass:            'icon-arrow-down', // The class name for the down arrow
         callBack:              null, // The callback function when an item is selected
         formatter:             null, // A callback to allow user formatting of the inner text
         includeEmpties:        false, // Should all empty items be included
         allowFirstEmptyAsInit: true, // If the first item is empty, include it as initial text
         setSelected:           true, // Match the selected attribute
         forceSelected:         null, // Value of item to force as selected
-        width:                 "auto" // The css width or auto for calculated based on item length
+        width:                 'auto' // The css width or auto for calculated based on item length
     };
 
 }(jQuery));

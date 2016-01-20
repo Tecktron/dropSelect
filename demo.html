@@ -7,7 +7,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script type="text/javascript" src="dropSelect.js"></script>
     <style type="text/css">
-        #selectedValue {
+        #selectedValue, .inline {
             display: inline-block;
         }
     </style>
@@ -27,6 +27,8 @@
         <option value="item-10">Item diez (ten)</option>
     </select>
     <div id="selectedValue">No Selection</div>
+    <div class="inline"><button id="update">Set Cinco</button></div>
+    <div class="inline"><button id="get">Alert Value</button></div>
 <script>
     $(function() {
         $('#test').dropSelect({
@@ -37,6 +39,13 @@
                 return text.replace('(',"<small>(").replace(')',")</small>");
             },
             width: "500px"
+        });
+        $('#update').on('click', function() {
+            $('#test').val('item-5');
+        });
+        $('#get').on('click', function() {
+            var val = $('#test').val();
+            alert(val ? val : 'No value has been set');
         });
     });
 </script>
