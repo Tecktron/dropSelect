@@ -4,11 +4,16 @@
  * http://hinstitute.github.io/dropSelect/
  * MIT License - Please keep this header.
 ***/
-(function ($) {
+;(function ($) {
     'use strict';
     $.fn.dropSelect = function (options) {
         var opts = $.extend({}, $.fn.dropSelect.defaults, options),
             fakeEl;
+
+        //this makes sure that if we're force selecting we're overriding the default
+        if (opts.forceSelected) {
+            opts.setSelected = false;
+        }
 
         // Parse all items that meet the selector
         this.each(function () {
@@ -77,7 +82,8 @@
                 var $this = $(this),
                     value = $this.attr('value') || null,
                     name = ((typeof opts.formatter === 'function') ? opts.formatter($this.text()) : $this.text()),
-                    isSelected = $this.prop('selected'),
+                    //we use attr here since prop in FF may have issue with dynamically generated selects
+                    isSelected = $this.attr('selected') || false,
                     current = {};
 
                 // We need to check how we handle empties based on the options.
@@ -165,16 +171,16 @@
     // passing it a value will make that value selected if found
     $.fn.jQueryVal = $.fn.val;
     $.fn.val = function (value) {
-        var self = $(this),
+        var $this = $(this),
             item;
 
-        if (self.data('plugin') !== 'dropSelect') {
-            return (value) ? self.jQueryVal(value) : self.jQueryVal();
+        if ($this.data('plugin') !== 'dropSelect') {
+            return (value) ? $this.jQueryVal(value) : $this.jQueryVal();
         }
         if (!value) {
-            return self.find('.selected').attr('data-value') || null;
+            return $this.find('.selected').attr('data-value') || null;
         }
-        item = self.find('div.items a[data-value=' + value + ']') || null;
+        item = $this.find('div.items a[data-value=' + value + ']') || null;
         if (item) {
             item.click();
         }
