@@ -1,3 +1,9 @@
+/***
+ * dropSelect jQuery Plugin
+ * (c) Harmony Institute
+ * http://hinstitute.github.io/dropSelect/
+ * MIT License - Please keep this header.
+***/
 (function ($) {
     'use strict';
     $.fn.dropSelect = function (options) {
@@ -63,6 +69,8 @@
             }
             // Add our classname
             dropSelect.addClass(opts.className);
+            // set a way to find it
+            dropSelect.data('plugin', 'dropSelect');
 
             // Parse all the options.
             select.find('option').each(function (index) {
@@ -148,14 +156,22 @@
         return this;
     };
 
-    // Here we override the val() function
-    // passing it an empty value will obtain the value or null if not set.
+    // Here we stash then override the val() function
+    // if we're not a dropSelect element, we just return the usual val result
+    // otherwise passing it an empty value will obtain the value or null if not set.
     // passing it a value will make that value selected if found
+    $.fn.jQueryVal = $.fn.val;
     $.fn.val = function (value) {
-        if (!value) {
-            return $(this).find('.selected').attr('data-value') || null;
+        var self = $(this),
+            item;
+
+        if (self.data('plugin') !== 'dropSelect') {
+            return (value) ? self.jQueryVal(value) : self.jQueryVal();
         }
-        var item = $(this).find('div.items a[data-value=' + value + ']') || null;
+        if (!value) {
+            return self.find('.selected').attr('data-value') || null;
+        }
+        item = self.find('div.items a[data-value=' + value + ']') || null;
         if (item) {
             item.click();
         }
@@ -174,4 +190,4 @@
         width:                 'auto' // The css width or auto for calculated based on item length
     };
 
-}(jQuery));
+})(jQuery);
