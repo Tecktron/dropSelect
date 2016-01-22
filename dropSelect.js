@@ -94,6 +94,9 @@
                 // Setup our initial selection
                 if ((isSelected && opts.setSelected === true) || (opts.forceSelected === value)) {
                     selected.html(name);
+                    if (value) {
+                        selected.attr('data-value', value);
+                    }
                     if (current.length) {
                         current.addClass('active');
                     }
