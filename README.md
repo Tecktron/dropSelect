@@ -2,7 +2,7 @@
 
 This is a CSS 3/jQuery plugin for making a div based dropdown select box.
 All styling is done with CSS. Usage is simple: `$('.mySelectElement').dropSelect()` you're ready to go.
-You can then use `$('.mySelectElement').val()` to get the value or use `$('.mySelectElement').val(neValue)` to set the selection to the passed in value (it needs to exist).
+You can then use `$('.mySelectElement').val()` to get the value or use `$('.mySelectElement').val(newValue)` to set the selection to the passed in value (it needs to exist).
 
 Initiation takes an optional object of options:
 
@@ -17,5 +17,7 @@ Initiation takes an optional object of options:
 + width: The width in your favorite css unit (defaults to "auto", a calculated value based on the longest item length)
 
 Please see the `demo.html` for a full working example.
+
+Checkout our github micro-site (includes the demo): http://hinstitute.github.io/dropSelect/
 
 If you run into any problems, please open an issue or feel free to fix it and make a pull request.
