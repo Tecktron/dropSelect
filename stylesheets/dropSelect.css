@@ -1,17 +1,20 @@
 .dropSelect {
     position: relative;
     display: inline-block;
-    border: #000 solid thin;
-    background-color: #ccc;
-    color: #C00;
+    border: #dbe7f3 solid thin;
+    background-color: #2e7bcf;
+    color: #FFF;
     cursor: pointer;
     font-size: 18px;
     vertical-align: middle;
+    border-radius: 6px;
 }
 
 .dropSelect:hover {
-    background-color: #07c;
-    color: #EE0
+    background-color: #f2f8fc;
+    color: #474747;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .dropSelect div.selected {
@@ -47,7 +50,9 @@
 
 .dropSelect:hover div.items {
     display:block;
-    border-top: thin solid #000;
+    border-top: thin solid #9ddcff;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 
 .dropSelect div.items a {
@@ -56,16 +61,16 @@
     line-height: 2rem;
     padding: 1rem;
     white-space: nowrap;
-    color: #EE0
+    color: #2e7bcf
 }
 
 .dropSelect div.items a.active {
-    background-color: #666;
+    background-color: #2e7bcf;
     cursor: default;
-    color: #ccc;
+    color: #474747;
 }
 
 .dropSelect div.items a:not(.active):hover {
-    background-color: #666;
+    background-color: #2e7bcf;
     color: #FFF;
 }
