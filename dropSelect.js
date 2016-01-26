@@ -34,6 +34,14 @@
                     selected = items.siblings('.selected'),
                     base = items.parent();
 
+                if (opts.closeOnClick) {
+                    //to hide the items we'll set the display to none
+                    items.css('display', 'none');
+                    //next time we enter the parent, we reset the display
+                    base.on('mouseenter', function() {
+                        items.css('display', '');
+                    });
+                }
                 if (selected.attr('data-value') === value) {
                     return;
                 }
@@ -50,14 +58,6 @@
                 // @Todo: create and dispatch a change event.
                 // This does not seem to work
                 base.trigger('change');
-
-                if (opts.closeOnClick) {
-                    items.css('display', 'none');
-                    //this needs to be delayed shortly so the browser lets the hover state go.
-                    setTimeout(function() {
-                        items.css('display', '');
-                    }, 250);
-                }
             });
         });
 
