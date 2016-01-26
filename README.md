@@ -14,6 +14,7 @@ Initiation takes an optional object of options:
 + allowFirstEmptyAsInit: If the first item has no value, include it as initial text (defaults to true)
 + setSelected: When set to true, the selected item in the select box will be matched (defaults to true)
 + forceSelected: If given a value, will make that item selected over anything else (defaults to null)
++ closeOnClick: When set to true, this will close the selection box when an item is clicked (defaults to false)
 + width: The width in your favorite css unit (defaults to "auto", a calculated value based on the longest item length)
 
 Please see the `demo.html` for a full working example.

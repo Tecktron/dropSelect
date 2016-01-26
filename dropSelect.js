@@ -30,8 +30,9 @@
                 var $this = $(this),
                     display = $this.html(),
                     value = $this.data('value'),
-                    selected = $this.parent().siblings('.selected'),
-                    base = selected.parent();
+                    items = $this.parent(),
+                    selected = items.siblings('.selected'),
+                    base = items.parent();
 
                 if (selected.attr('data-value') === value) {
                     return;
@@ -49,6 +50,14 @@
                 // @Todo: create and dispatch a change event.
                 // This does not seem to work
                 base.trigger('change');
+
+                if (opts.closeOnClick) {
+                    items.css('display', 'none');
+                    //this needs to be delayed shortly so the browser lets the hover state go.
+                    setTimeout(function() {
+                        items.css('display', '');
+                    }, 250);
+                }
             });
         });
 
@@ -198,6 +207,7 @@
         allowFirstEmptyAsInit: true, // If the first item is empty, include it as initial text
         setSelected:           true, // Match the selected attribute
         forceSelected:         null, // Value of item to force as selected
+        closeOnClick:          false, //Set to true to close the box after a selection is made
         width:                 'auto' // The css width or auto for calculated based on item length
     };
 
