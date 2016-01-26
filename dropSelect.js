@@ -30,7 +30,8 @@
                 var $this = $(this),
                     display = $this.html(),
                     value = $this.data('value'),
-                    selected = $this.parent().siblings('.selected');
+                    selected = $this.parent().siblings('.selected'),
+                    base = selected.parent();
 
                 if (selected.attr('data-value') === value) {
                     return;
@@ -42,11 +43,12 @@
                 $this.addClass('active');
                 selected.attr('data-value', value).html(display);
                 if (typeof opts.callBack === 'function') {
-                    // Call the callback if it's set
-                    opts.callBack(value);
+                    // Call the callback, setting 'this' to be the dropdown main div.
+                    opts.callBack.call(base.get(0), value);
                 }
-                // Trigger the change event, does this even work?.
-                selected.parent().trigger('change');
+                // @Todo: create and dispatch a change event.
+                // This does not seem to work
+                base.trigger('change');
             });
         });
 

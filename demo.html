@@ -33,18 +33,26 @@
     $(function() {
         $('#test').dropSelect({
             callBack: function(value) {
+                // you are passed the value for ease
                 $('#selectedValue').text(value);
+                // but we could access it using `this` as
+                // `this` is set to our element here in the callback
+                console.log($(this).val());
             },
             formatter: function(text) {
+                // format the text of each item.
                 return text.replace('(',"<small>(").replace(')',")</small>");
             },
             width: "500px"
         });
         $('#update').on('click', function() {
+            // setting the value via jquery
             $('#test').val('item-5');
         });
         $('#get').on('click', function() {
+            // getting the value via jquery
             var val = $('#test').val();
+            // if nothing is set, val is null
             alert(val ? val : 'No value has been set');
         });
     });
