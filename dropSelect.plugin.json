@@ -3,8 +3,10 @@
   "title": "dropSelect jQuery plugin",
   "description": "A CSS3/jQuery select box",
   "keywords": [
-    "jquery-plugins",
+    "jquery",
+    "plugins",
     "select",
+    "dropdown",
     "form"
   ],
   "version": "1.0.6",
