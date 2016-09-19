@@ -3,20 +3,21 @@
   "main": [
     "dropSelect.js"
   ],
-  "homepage": "https://hinstitute.github.io/dropSelect/",
+  "homepage": "https://tecktron.github.io/dropSelect/",
   "repository": {
     "type": "git",
-    "url": "git://github.com/hinstitute/dropSelect.git"
+    "url": "git://github.com/tecktron/dropSelect.git"
   },
   "authors": [
-    {"name": "Craig Holden"},
-    {"name": "Harmony Institute", "homepage": "http://harmony-institute.org"}
+    {"name": "Craig Holden"}
   ],
   "description": "A CSS 3/jQuery plugin for making a div based dropdown select box.",
   "keywords": [
     "select",
     "dropdown",
-    "dropselect"
+    "dropselect",
+    "plugin",
+    "jquery"
   ],
   "license": "MIT",
   "ignore": [

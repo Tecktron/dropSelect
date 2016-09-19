@@ -19,6 +19,6 @@ Initiation takes an optional object of options:
 
 Please see the `demo.html` for a full working example.
 
-Checkout our github micro-site (includes the demo): http://hinstitute.github.io/dropSelect/
+Checkout our github micro-site (includes the demo): http://tecktron.github.io/dropSelect/
 
 If you run into any problems, please open an issue or feel free to fix it and make a pull request.

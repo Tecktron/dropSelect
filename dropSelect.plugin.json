@@ -9,8 +9,8 @@
   ],
   "version": "1.0.6",
   "author": {
-    "name": "Harmony Institute",
-    "url": "https://github.com/hinstitute"
+    "name": "Craig Holden",
+    "url": "https://github.com/tecktron"
   },
   "maintainers": [
     {
@@ -24,10 +24,10 @@
       "url": "http://www.opensource.org/licenses/mit-license.php"
     }
   ],
-  "bugs": "https://github.com/hinstitute/dropSelect/issues",
-  "homepage": "https://github.com/hinstitute/dropSelect",
-  "docs": "https://github.com/hinstitute/dropSelect#readme",
-  "download": "https://github.com/hinstitute/dropSelect/archive/master.zip",
+  "bugs": "https://github.com/tecktron/dropSelect/issues",
+  "homepage": "https://github.com/tecktron/dropSelect",
+  "docs": "https://github.com/tecktron/dropSelect#readme",
+  "download": "https://github.com/tecktron/dropSelect/archive/master.zip",
   "dependencies": {
     "jquery": ">=1.9"
   }
