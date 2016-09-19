@@ -3,6 +3,7 @@
   "main": [
     "dropSelect.js"
   ],
+  "version": "1.0.7",
   "homepage": "https://tecktron.github.io/dropSelect/",
   "repository": {
     "type": "git",
